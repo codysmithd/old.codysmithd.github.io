@@ -13,4 +13,8 @@
 
   </body>
 
+  {% for js_link in page.extra_js %}
+  <script src="{{ js_link }}"></script>
+  {% endfor %}
+
 </html>

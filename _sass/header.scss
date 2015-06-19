@@ -1,0 +1,17 @@
+/* Styling for the header and nav */
+
+.header-container {
+  display: block;
+  position: absolute;
+  top:0; left: 0;
+  width: 100%;
+  height: 75px;
+  z-index: 1;
+}
+
+.page-content {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+}

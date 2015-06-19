@@ -92,3 +92,12 @@ pre {
         clear: both;
     }
 }
+
+/**
+ * Flex Columns
+ */
+ .flex-column {
+     width: 50%;
+     display: inline-block;
+     float: left;
+ }
