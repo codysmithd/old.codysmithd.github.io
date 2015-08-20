@@ -1,8 +1,9 @@
 ---
 layout: default
 extra_css:
-    - /css/home.css
+    - /css/external/bootstrap.min.css
     - http://fonts.googleapis.com/css?family=Bree+Serif
+    - /css/index.css
 extra_js:
     - https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js
     - /scripts/external/jquery-ui.min.js
@@ -11,41 +12,8 @@ extra_js:
 ---
 <div class="scrollSnap-container">
 
-    <div class="home page">
-        <div class="outer"><div class="middle"><div class="inner welcome-text">
-            <h1><b>Welcome</b></h1>
-            <h3>to the digital home of Cody Smith</h3>
-            <div class="home-nav">
-                <div id="home-nav-about" class="nav-button">
-                    About
-                </div>
-                <div id="home-nav-projects" class="nav-button">
-                    Projects
-                </div>
-                <div id="home-nav-blog" class="nav-button">
-                    Blog
-                </div>
-            </div>
-        </div></div></div>
-    </div>
+    {% include pages/home.html %}
 
-    <div class="about page">
-        <h1>About</h1>
-        <hr/>
-        <div class="flex-column">
-            
-        </div>
-        <div class="flex-column">
-
-        </div>
-    </div>
-
-    <div class="projects page">
-        <h1>Projects</h1>
-    </div>
-
-    <div class="blog page">
-        <h1>Blog</h1>
-    </div>
+    {% include pages/about.html %}
 
 </div>

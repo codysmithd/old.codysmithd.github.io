@@ -4,8 +4,6 @@
 @charset "utf-8";
 
 
-
-// Our variables
 $base-font-family: Helvetica, Arial, sans-serif;
 $base-font-size:   16px;
 $small-font-size:  $base-font-size * 0.875;
@@ -42,6 +40,11 @@ $on-laptop:        800px;
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
         "base",
-        "syntax-highlighting",
-        "header"
+        "syntax-highlighting"
 ;
+
+// Global classes
+
+.text-center {
+    text-align: center;
+}

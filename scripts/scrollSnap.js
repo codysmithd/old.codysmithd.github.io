@@ -11,7 +11,7 @@ $.widget( "cs.scrollSnap", {
         var that = this;
         this.$element = this.element;
 
-        this.current_page = 0;
+        this.$current_view = null;
         this.timer = null;
 
         this.$element.addClass("scrollSnap_parent");
@@ -21,37 +21,60 @@ $.widget( "cs.scrollSnap", {
                 that.element.stop();
             }
         });
+
     },
 
     // Called every time the container scrolls
     _scrollFn: function () {
 
-        var that = this;
-        var computed_page = Math.round(this.$element.scrollTop()/this.$element.outerHeight(true));
+        var that = this,
+            centerOfViewport = (this.$element.outerHeight(true)/2) + this.$element.scrollTop(),
+            heightSum = 0,
+            computedView;
 
-        if(computed_page != this.current_page){
-            this.current_page = computed_page;
+        this.$element.children().each(function () {
+            heightSum += $(this).outerHeight(true);
+            if(heightSum >= centerOfViewport){
+                computedView = $(this);
+                return false;
+            }
+        });
+
+        if(computedView != this.current_view){
+            this.current_view = computedView;
         }
 
         clearTimeout(this.timer);
 
+        var newScrollTop = heightSum - that.current_view.outerHeight(true)/2 - this.$element.outerHeight(true)/2;
+
         this.timer = setTimeout(function () {
             that.$element.animate({
-                scrollTop: that.current_page * that.$element.outerHeight(true) + 'px'
+                scrollTop: newScrollTop + 'px'
             }, that.options.snap_speed);
         }, that.options.snap_delay)
 
     },
 
     // Scrolls to the specificed page
-    changePage: function (page) {
+    changePage: function ($page) {
 
-        var that = this;
+        var that = this,
+            heightSum = 0;
+
+        this.$element.children().each(function () {
+            heightSum += $(this).outerHeight(true);
+            if($(this).is($page)){
+                return false;
+            }
+        });
+
+        var newScrollTop = heightSum - $page.outerHeight(true)/2 - this.$element.outerHeight(true)/2;
 
         this.$element.stop();
         this.$element.animate({
-            scrollTop: page * that.$element.outerHeight(true) + 'px'
-        }, that.options.scroll_speed*page, 'swing');
+            scrollTop: newScrollTop + 'px'
+        }, that.options.scroll_speed, 'swing');
     }
 
 
