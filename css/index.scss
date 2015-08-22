@@ -23,15 +23,32 @@
         text-align: center;
         white-space: nowrap;
         cursor: pointer;
-        color: color($grey, 500);
         transition: color 0.2s, background-color 0.2s;
-        background-color: color($grey, 800);
 
+        color: color($grey, 500);
+        background-color: color($grey, 800);
         &:hover {
             color: color($grey, 400);
             background-color: color($grey, 700);
         }
 
+        &.active {
+            background-color: color($green, 600);
+            color: color($grey, 800);
+
+            &.button-about {
+                background-color: color($light-blue, 600);
+                &:hover {
+                    background-color: color($light-blue, 500);
+                }
+            }
+
+            &:hover {
+                background-color: color($green, 500);
+            }
+        }
+
+        // Fix Glyphicons
         &:before {
             content: '';
             display: inline-block;
@@ -39,20 +56,11 @@
             vertical-align: middle;
             margin-right: -0.25em;
         }
-
-        &.active {
-            background-color: color($green, 600);
-            color: color($grey, 800);
-
-            &:hover {
-                background-color: color($green, 500);
-            }
-        }
-
         .glyphicon {
             display: inline-block;
             vertical-align: middle;
         }
+
     }
 }
 
@@ -62,13 +70,10 @@
     position: fixed;
     right:0;
     overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 .home {
-    //background-image: url("/assets/homepage_background.png");
-    //background-position: center center;
-    //background-size: cover;
-    //background-attachment: fixed;
 
     .welcome-text {
         text-align: center;
@@ -78,10 +83,11 @@
         h1 {
             font-size: 110px;
             margin: 0;
+            color: color($green, 500);
         }
 
         h3 {
-            font-size: 24px;
+            font-size: 28px;
         }
     }
 }
@@ -92,7 +98,8 @@
     box-sizing: border-box;
     //box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.25);
 
-    @include background-gradient(color($grey, 200), color($grey, 300));
+    @include background-gradient(color($grey, 200), color($grey, 100));
+    color: color($grey, 800);
 
     h1 {
         font-weight: bold;

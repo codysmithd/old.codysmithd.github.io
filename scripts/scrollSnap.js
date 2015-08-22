@@ -55,7 +55,7 @@ $.widget( "cs.scrollSnap", {
             that.$element.animate({
                 scrollTop: newScrollTop + 'px'
             }, that.options.snap_speed);
-        }, that.options.snap_delay)
+        }, that.options.snap_delay);
 
     },
 

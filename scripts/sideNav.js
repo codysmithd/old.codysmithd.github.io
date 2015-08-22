@@ -22,6 +22,8 @@ $.widget( "cs.sideNav", {
             that.buttonPageMap[newPageIndex][0].addClass('active');
         });
 
+        this.scrollSnapParent.trigger('scroll');
+
     },
 
     // Attempts to change to page with the given
