@@ -16,7 +16,7 @@ $.widget( "cs.scrollSnap", {
 
         this.$element.addClass("scrollSnap_parent");
         this.$element.on('scroll', $.proxy(this._scrollFn, this));
-        this.$element.bind('scroll mousedown DOMMouseScroll mousewheel keyup', function (e) {
+        this.$element.bind('scroll mousedown DOMMouseScroll mousewheel keyup touchmove', function (e) {
             if(e.which > 0 || e.type == 'mousedown' || e.type == 'mousewheel'){
                 that.element.stop();
             }
@@ -30,18 +30,21 @@ $.widget( "cs.scrollSnap", {
         var that = this,
             centerOfViewport = (this.$element.outerHeight(true)/2) + this.$element.scrollTop(),
             heightSum = 0,
+            currentPageIndex = 0,
             computedView;
 
-        this.$element.children().each(function () {
+        this.$element.children().each(function (index) {
             heightSum += $(this).outerHeight(true);
             if(heightSum >= centerOfViewport){
                 computedView = $(this);
+                currentPageIndex = index;
                 return false;
             }
         });
 
-        if(computedView != this.current_view){
+        if(!computedView.is(this.current_view)){
             this.current_view = computedView;
+            this.$element.trigger('changePage', currentPageIndex);
         }
 
         clearTimeout(this.timer);
@@ -59,6 +62,8 @@ $.widget( "cs.scrollSnap", {
     // Scrolls to the specificed page
     changePage: function ($page) {
 
+        this.$element.stop();
+
         var that = this,
             heightSum = 0;
 
@@ -71,7 +76,6 @@ $.widget( "cs.scrollSnap", {
 
         var newScrollTop = heightSum - $page.outerHeight(true)/2 - this.$element.outerHeight(true)/2;
 
-        this.$element.stop();
         this.$element.animate({
             scrollTop: newScrollTop + 'px'
         }, that.options.scroll_speed, 'swing');

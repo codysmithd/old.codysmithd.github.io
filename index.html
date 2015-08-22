@@ -8,8 +8,19 @@ extra_js:
     - https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js
     - /scripts/external/jquery-ui.min.js
     - /scripts/scrollSnap.js
+    - /scripts/sideNav.js
     - /scripts/index.js
 ---
+
+<div class="sideNav">
+    <div class="sideNav-button active">
+        <span class="glyphicon glyphicon-home"></span>
+    </div>
+    <div class="sideNav-button">
+        <span class="glyphicon glyphicon-user"></span>
+    </div>
+</div>
+
 <div class="scrollSnap-container">
 
     {% include pages/home.html %}

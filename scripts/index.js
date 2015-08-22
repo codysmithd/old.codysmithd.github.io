@@ -1,5 +1,6 @@
 $(document).ready(function(){
-
-    var parent = $('.scrollSnap-container').scrollSnap();
-
+    var scrollSnap = $('.scrollSnap-container').scrollSnap();
+    $('.sideNav').sideNav({
+        scrollSnapParent: scrollSnap
+    });
 });
