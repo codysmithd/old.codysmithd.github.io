@@ -103,15 +103,74 @@
 
     h1 {
         font-weight: bold;
-        margin-bottom: 12px;
+        font-size: 3em;
+        margin: 0;
+    }
+
+    h2 {
+        margin-bottom: 24px;
+    }
+
+    strong {
+        color: color($light-blue, 500);
     }
 
     hr {
-        border-color: #CCC;
+        border-color: color($grey, 300);
     }
 
     .about-info-top {
         margin-bottom: 12px;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    .about-button {
+        width: 100%;
+        text-align:center;
+    	font-weight: 400;
+        padding: 12px 0;
+        margin-bottom: 6px;
+        background-color: color($grey, 300);
+        color: color($grey, 700);
+    	cursor:pointer;
+    	overflow:hidden;
+    	position:relative;
+        z-index: 0;
+        border-radius: 3px;
+        font-weight: 500;
+        font-size: 1.25em;
+
+    	transition:         .2s;
+    	-moz-transition:    .2s;
+    	-webkit-transition: .2s;
+    	-o-transition:      .2s;
+
+        &:hover {
+            background-color: color($blue, 300);
+            color: color($grey, 50);
+            text-decoration: none;
+
+            .button-watermark {
+                opacity: 0;
+            }
+        }
+    }
+
+    .button-watermark {
+    	position:absolute;
+    	top:50%;
+    	margin-top:-22px;
+    	left:50%;
+    	margin-left:-22px;
+    	z-index: -1;
+    	opacity: 0.1;
+    	transition:         .75s;
+    	-moz-transition:    .75s;
+    	-webkit-transition: .75s;
+    	-o-transition:      .75s;
     }
 
 }
