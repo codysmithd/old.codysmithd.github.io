@@ -119,6 +119,10 @@
         border-color: color($grey, 300);
     }
 
+    ul {
+        margin-left: 18px;
+    }
+
     .about-info-top {
         margin-bottom: 12px;
     }
@@ -143,19 +147,15 @@
         font-weight: 500;
         font-size: 1.25em;
 
-    	transition:         .2s;
-    	-moz-transition:    .2s;
-    	-webkit-transition: .2s;
-    	-o-transition:      .2s;
+    	transition:         .1s;
+    	-moz-transition:    .1s;
+    	-webkit-transition: .1s;
+    	-o-transition:      .1s;
 
         &:hover {
             background-color: color($blue, 300);
             color: color($grey, 50);
             text-decoration: none;
-
-            .button-watermark {
-                opacity: 0;
-            }
         }
     }
 
