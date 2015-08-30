@@ -75,19 +75,23 @@
 
 .home {
 
+    @include background-gradient(color($grey, 100), color($grey, 50));
+
     .welcome-text {
         text-align: center;
         color: color($grey, 800);
         padding-bottom: 28px;
+        display: inline-block;
+        width: 100%;
 
         h1 {
-            font-size: 110px;
             margin: 0;
             color: color($green, 500);
+            font-size: 6em;
         }
 
         h3 {
-            font-size: 28px;
+            font-size: 1.75em;
         }
     }
 }
@@ -96,6 +100,7 @@
 
     padding: 24px;
     box-sizing: border-box;
+    position: relative;
     //box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.25);
 
     @include background-gradient(color($grey, 200), color($grey, 100));
@@ -131,6 +136,11 @@
         text-decoration: none;
     }
 
+    .about-footer {
+        position: absolute;
+        bottom: 0;
+    }
+
     .about-button {
         width: 100%;
         text-align:center;
@@ -154,7 +164,7 @@
 
         &:hover {
             background-color: color($blue, 300);
-            color: color($grey, 50);
+            color: color($grey, 800);
             text-decoration: none;
         }
     }
