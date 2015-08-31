@@ -1,5 +1,15 @@
 $.widget( "cs.sideNav", {
 
+    // Sets the URL hash
+    _setURLHash(id){
+        if(history.pushState) {
+            history.pushState(null, null, id ? '#' + id : '');
+        } else {
+            location.hash = id ? '#' + id : '';
+        }
+    },
+
+
     // REQUIRES scrollSnapParent in options, assumes page order and nav button order are the same
     _create: function() {
 
@@ -20,6 +30,7 @@ $.widget( "cs.sideNav", {
         this.scrollSnapParent.on('changePage', function (event, newPageIndex) {
             that.$element.children().removeClass('active');
             that.buttonPageMap[newPageIndex][0].addClass('active');
+            that._setURLHash(that.buttonPageMap[newPageIndex][1].attr('id'));
         });
 
         this.scrollSnapParent.trigger('scroll');
@@ -28,8 +39,6 @@ $.widget( "cs.sideNav", {
 
     // Attempts to change to page with the given
     changePage : function (index) {
-        this.$element.children().removeClass('active');
-        this.buttonPageMap[index][0].addClass('active');
         this.scrollSnapParent.data('cs-scrollSnap').changePage(this.buttonPageMap[index][1]);
     }
 
