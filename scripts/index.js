@@ -1,6 +1,7 @@
 $(document).ready(function(){
-    var scrollSnap = $('.scrollSnap-container').scrollSnap();
+    var scrollSnapParent = $('.scrollSnap-container').scrollSnap();
     $('.sideNav').sideNav({
-        scrollSnapParent: scrollSnap
+        scrollSnapParent: scrollSnapParent
     });
+    startProjectsBackground(scrollSnapParent);
 });

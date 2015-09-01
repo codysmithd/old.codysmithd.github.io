@@ -27,7 +27,7 @@ $.widget( "cs.sideNav", {
             });
         });
 
-        this.scrollSnapParent.on('changePage', function (event, newPageIndex) {
+        this.scrollSnapParent.on('scrollSnap_change_page', function (event, newPageIndex) {
             that.$element.children().removeClass('active');
             that.buttonPageMap[newPageIndex][0].addClass('active');
             that._setURLHash(that.buttonPageMap[newPageIndex][1].attr('id'));

@@ -1,3 +1,11 @@
+var constants = {
+    VISIBLE: 'scrollSnap_visible',
+    events: {
+        CHANGE_PAGE: 'scrollSnap_change_page',
+        VIEW_VISIBLE_CHANGE: 'scrollSnap_view_visible_change'
+    }
+};
+
 $.widget( "cs.scrollSnap", {
 
     options: {
@@ -28,28 +36,45 @@ $.widget( "cs.scrollSnap", {
     _scrollFn: function () {
 
         var that = this,
+            topOfViewport = that.$element.scrollTop(),
             centerOfViewport = (this.$element.outerHeight(true)/2) + this.$element.scrollTop(),
+            bottomOfViewport = this.$element.outerHeight(true) + this.$element.scrollTop(),
             heightSum = 0,
+            currentPageFound = false,
+            currentPageBottom = 0,
             currentPageIndex = 0,
-            computedView;
+            $computedView;
 
         this.$element.children().each(function (index) {
-            heightSum += $(this).outerHeight(true);
-            if(heightSum >= centerOfViewport){
-                computedView = $(this);
+            var $child = $(this),
+                bottom = heightSum + $child.outerHeight(true);
+
+            var visible = bottom > topOfViewport && heightSum < bottomOfViewport;
+
+            if($child.data(constants.VISIBLE) != visible){
+                that.$element.trigger(constants.events.VIEW_VISIBLE_CHANGE, [ visible, $child ]);
+            }
+            $child.data(constants.VISIBLE, visible);
+
+            heightSum = bottom;
+
+            // Set the current page/view (first page after center)
+            if(!currentPageFound && heightSum >= centerOfViewport){
+                $computedView = $child;
                 currentPageIndex = index;
-                return false;
+                currentPageBottom = heightSum;
+                currentPageFound = true;
             }
         });
 
-        if(!computedView.is(this.current_view)){
-            this.current_view = computedView;
-            this.$element.trigger('changePage', currentPageIndex);
+        if(!$computedView.is(this.$current_view)){
+            this.$current_view = $computedView;
+            this.$element.trigger(constants.events.CHANGE_PAGE, currentPageIndex);
         }
 
         clearTimeout(this.timer);
 
-        var newScrollTop = heightSum - that.current_view.outerHeight(true)/2 - this.$element.outerHeight(true)/2;
+        var newScrollTop = currentPageBottom - that.$current_view.outerHeight(true)/2 - this.$element.outerHeight(true)/2;
 
         this.timer = setTimeout(function () {
             that.$element.animate({
