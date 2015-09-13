@@ -1,4 +1,4 @@
-function startProjectsBackground (scrollSnapParent) {
+function projectsCanvas (scrollSnapParent) {
 
     var $page = $('#projects');
 
@@ -36,6 +36,8 @@ function startProjectsBackground (scrollSnapParent) {
 
         canvas.height = $page.outerHeight(true);
         canvas.width = $page.outerWidth(true);
+
+        triangles = [];
 
         var size = 110,
             triangle_height = 0.43301270189 * size * 2;

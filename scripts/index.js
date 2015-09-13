@@ -3,5 +3,6 @@ $(document).ready(function(){
     $('.sideNav').sideNav({
         scrollSnapParent: scrollSnapParent
     });
-    startProjectsBackground(scrollSnapParent);
+    projectsCanvas(scrollSnapParent);
+    homeCanvas(scrollSnapParent);
 });
