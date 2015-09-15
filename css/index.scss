@@ -102,6 +102,15 @@
         h3 {
             font-size: 1.75em;
         }
+
+        @media screen and (max-width: 466px) {
+            h1 {
+                font-size: 16vw;
+            }
+            h3 {
+                font-size: 5vw;
+            }
+        }
     }
 
     #home-bg {
