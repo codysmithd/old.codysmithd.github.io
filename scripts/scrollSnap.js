@@ -87,6 +87,10 @@ $.widget( "cs.scrollSnap", {
     // Scrolls to the specificed page
     changePage: function ($page) {
 
+        if (this.$element.children().index($page) === -1) {
+            return;
+        }
+
         this.$element.stop();
 
         var that = this,
