@@ -1,7 +1,7 @@
 $.widget( "cs.sideNav", {
 
     // Sets the URL hash
-    _setURLHash(id){
+    _setURLHash: function (id) {
         if(history.pushState) {
             history.pushState(null, null, id ? '#' + id : '');
         } else {

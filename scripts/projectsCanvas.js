@@ -17,13 +17,13 @@ function projectsCanvas (scrollSnapParent) {
     // Draws an equilateral triangle from a set of 3 points with a color
     var _drawTriangle = function (triangle, offset) {
         var offset = offset/2;
-        var trianglePath = new Path2D();
-        trianglePath.moveTo(triangle.p1.x, triangle.p1.y - offset);
-        trianglePath.lineTo(triangle.p2.x, triangle.p2.y - offset);
-        trianglePath.lineTo(triangle.p3.x, triangle.p3.y - offset);
-        trianglePath.lineTo(triangle.p1.x, triangle.p1.y - offset);
+        context.beginPath();
+        context.moveTo(triangle.p1.x, triangle.p1.y - offset);
+        context.lineTo(triangle.p2.x, triangle.p2.y - offset);
+        context.lineTo(triangle.p3.x, triangle.p3.y - offset);
+        context.lineTo(triangle.p1.x, triangle.p1.y - offset);
         context.fillStyle = triangle.color;
-        context.fill(trianglePath);
+        context.fill();
     };
 
     // Returns random color from colors array
