@@ -42,8 +42,8 @@ function projectsCanvas (scrollSnapParent) {
         var size = 110,
             triangle_height = 0.43301270189 * size * 2;
 
-        for (var y = 0; y < canvas.height + triangle_height; y += triangle_height){
-          for (var x = size/2; x < canvas.width + size; x += size) {
+        for (var y = -size; y < canvas.height + triangle_height; y += triangle_height){
+          for (var x = -size/2; x < canvas.width + size; x += size) {
 
             var A = {
                     x: x - (size/2),
