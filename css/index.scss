@@ -283,10 +283,12 @@
             display: inline-block;
             border: 1px solid color($grey, 400);
             border-radius: 3px;
+            margin: 6px;
+            padding: 4px;
             cursor: pointer;
             color: color($grey, 800);
-            width: 150px;
-            height: 150px;
+            width: 175px;
+            height: 175px;
             transition:         .2s;
         	-moz-transition:    .2s;
         	-webkit-transition: .2s;
@@ -315,7 +317,10 @@
 
             img {
                 position: absolute;
-                top: 0;
+                top: 50%;
+                left: 50%;
+                margin: auto;
+                top: 0; left: 0; bottom: 0; right: 0;
                 opacity: 0.1;
                 z-index: 1;
             }
