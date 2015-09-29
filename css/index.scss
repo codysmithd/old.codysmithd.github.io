@@ -142,6 +142,7 @@
     color: color($grey, 800);
 
     .about-content {
+        position: absolute;
         width: 1000px;
         left: 50%;
         border: 1px solid transparent;
