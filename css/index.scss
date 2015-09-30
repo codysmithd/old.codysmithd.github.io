@@ -264,6 +264,7 @@
     }
 
     .vertical-center.projects-grid {
+        position: fixed;
         text-align: center;
         left: 50%;
         transform: translateX(-50%) translateY(-50%);
