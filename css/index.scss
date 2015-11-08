@@ -141,7 +141,7 @@
         margin: 0;
     }
 
-    @include background-gradient(color($grey, 300), color($grey, 200));
+    @include background-gradient(color($grey, 200), color($grey, 300));
     color: color($grey, 800);
 
     .about-content {
