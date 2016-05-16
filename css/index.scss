@@ -88,9 +88,6 @@
 
     @include background-gradient(color($grey, 100), color($grey, 50));
 
-    background-image: url('/assets/home/home_bg.jpg');
-    background-size: cover;
-
     .welcome-text {
         text-align: center;
         color: color($grey, 800);
@@ -141,7 +138,7 @@
         margin: 0;
     }
 
-    @include background-gradient(color($grey, 200), color($grey, 300));
+    background: color($grey, 300);
     color: color($grey, 800);
 
     .about-content {
@@ -279,7 +276,15 @@
         h2 {
             font-weight: lighter;
             font-size: 2em;
-            text-align: left;
+            text-align: center;
+        }
+
+        a {
+            cursor: pointer;
+        }
+
+        .col-sm-4 {
+            padding: 6px 0px;
         }
 
         .project-button {
