@@ -1,37 +1,16 @@
----
-layout: default
-extra_css:
-    - /css/external/bootstrap.min.css
-    - http://fonts.googleapis.com/css?family=Bree+Serif
-    - /css/index.css
-extra_js:
-    - https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js
-    - /scripts/external/jquery-ui.min.js
-    - /scripts/scrollSnap.js
-    - /scripts/sideNav.js
-    - /scripts/projectsCanvas.js
-    - /scripts/homeCanvas.js
-    - /scripts/index.js
----
-
-<div class="sideNav">
-    <div class="sideNav-button button-home">
-        <span class="glyphicon glyphicon-home"></span>
+<html>
+<head>
+    <title>CodySmithD</title>
+    <link rel="stylesheet" href="styles/index.css">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico|Open+Sans" rel="stylesheet">
+</head>
+<body>
+    <div class="flex-container">
+        <section id="main-card">
+            <img src="https://www.gravatar.com/avatar/115116a77152ef2794ee01c320843fd6?s=256&d=identicon&r=PG" width="128" height="128"/>
+            <h1>Cody Smith</h1>
+            <h2>Welcome to my personal website</h2>
+        </section>
     </div>
-    <div class="sideNav-button button-about">
-        <span class="glyphicon glyphicon-user"></span>
-    </div>
-    <div class="sideNav-button button-projects">
-        <span class="glyphicon glyphicon-th-large"></span>
-    </div>
-</div>
-
-<div class="scrollSnap-container">
-
-    {% include pages/home.html %}
-
-    {% include pages/about.html %}
-
-    {% include pages/projects.html %}
-
-</div>
+</body>
+</html>

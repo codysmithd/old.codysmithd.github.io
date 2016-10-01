@@ -1,0 +1,18 @@
+{
+  "name": "codysmithd.github.io",
+  "version": "1.0.0",
+  "description": "Cody Smith's personal website",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codysmithd/codysmithd.github.io.git"
+  },
+  "author": "Cody Smith",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-less": "^1.4.0",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}

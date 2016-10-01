@@ -1,0 +1,58 @@
+@import 'shared/palette';
+
+body {
+
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+
+  background: linear-gradient(
+    45deg,
+    @palette-Light-Blue-500,
+    @palette-Lime-400
+  )
+}
+
+.flex-container {
+
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  min-height: 100%;
+
+  #main-card {
+
+    background-color: @palette-Grey-900;
+    background: linear-gradient(
+            90deg,
+            @palette-Blue-Grey-900,
+            @palette-Grey-900
+    );
+    color: @palette-Grey-200;
+    text-align: center;
+    padding: 2em 3em;
+    border-radius: 4px;
+    opacity: 0.9;
+    box-shadow: 0px 5px 20px 0px rgba(0,0,0,0.55);
+
+    h1 {
+      font-size: 4em;
+      font-weight: normal;
+      margin: 0 0 0.25em 0;
+      font-family: 'Pacifico', cursive;
+    }
+
+    h2 {
+      font-size: 1.1em;
+      font-weight: lighter;
+      margin: 0;
+      opacity: 0.25;
+    }
+
+    img {
+      border-radius: 50%;
+    }
+
+  }
+
+}
